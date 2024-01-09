@@ -411,16 +411,24 @@ void ModulePhysics3D::Ground(int length, int width, int x, int y, int z)
 	ground->SetPos(x, y, z);
 }
 
-void ModulePhysics3D::RectRoad(int length, int width, int x, int y, int z, RoadTypes direction)
+void ModulePhysics3D::RectRoad(int length, int width, vec3 pos, Color c, RoadTypes direction)
 {
-	bool colorSwitch = false;
-	Cube* wall = new Cube(10.0f, 0.1f, 22.0f);
+	bool colorSwitch = false; 
+	Cube* wall = new Cube(width, 0.1f, length);
 
-	/*if (colorSwitch) { left->color= right->color = { 255,255,255 }; colorSwitch = false; }
-		else { left->color= right->color = { 255,0,0 }; colorSwitch = true; }*/
+	if (colorSwitch) 
+	{ 
+		wall->color = { 255,255,255 }; 
+		colorSwitch = false; 
+	}
+	else 
+	{ 
+		wall->color = { 255,0,0 }; 
+		colorSwitch = true; 
+	}
 
 	App->scene_intro->PrimitiveObjects.PushBack(wall);
-	wall->SetPos(x, y, z);
+	wall->SetPos(pos.x, pos.y, pos.z);
 
 	vec3 rot;
 
@@ -429,25 +437,25 @@ void ModulePhysics3D::RectRoad(int length, int width, int x, int y, int z, RoadT
 	case FORWARD_RECT:
 		rot = { 0,0,0 };
 		break;
-	case BACKWARD_RECT:
-		rot = { 0,0,0 };
-		break;
 	case LEFT_RECT:
 		rot = { 0,-1,0 };
+		wall->SetRotation(20, rot);
 		break;
 	case RIGHT_RECT:
 		rot = { 0,1,0 };
+		wall->SetRotation(20, rot);
 		break;
 	case RAMP:
 		rot = { 1,0,0 };
+		wall->SetRotation(20, rot);
 		break;
 	case INVERSE_RAMP:
 		rot = { -1,0,0 };
+		wall->SetRotation(20, rot);
 		break;
 	default:
 		break;
 	}
-	
-	wall->SetRotation(20, rot);
+
 	AddBody(*wall, 1000000.0f, WALL);
 }
