@@ -411,10 +411,10 @@ void ModulePhysics3D::Ground(int length, int width, int x, int y, int z)
 	ground->SetPos(x, y, z);
 }
 
-void ModulePhysics3D::RectRoad(int length, int width, vec3 pos, Color c, RoadTypes direction)
+void ModulePhysics3D::RectRoad(int length, int width, int height, vec3 pos, Color c, RoadTypes direction)
 {
 	bool colorSwitch = false; 
-	Cube* wall = new Cube(width, 0.1f, length);
+	Cube* wall = new Cube(width, height, length);
 
 	if (colorSwitch) 
 	{ 
@@ -451,6 +451,16 @@ void ModulePhysics3D::RectRoad(int length, int width, vec3 pos, Color c, RoadTyp
 		break;
 	case INVERSE_RAMP:
 		rot = { -1,0,0 };
+		wall->SetRotation(20, rot);
+		break;
+	case TOP_RIGHT_CORNER:
+		rot = { 0,-1,0 };
+		wall->SetRotation(20, rot);
+		break;
+	case FORWARD_WALL:
+		break;
+	case TOP_RIGHT_RECT:
+		rot = { 0,-1,0 };
 		wall->SetRotation(20, rot);
 		break;
 	default:

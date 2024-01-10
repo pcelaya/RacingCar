@@ -31,6 +31,14 @@ bool ModulePlayer::Start()
 	car.frictionSlip = 50.5;
 	car.maxSuspensionForce = 6000.0f;
 
+	car.front_chassis_size.Set(3, 0.5, 1);
+	car.front_chassis_offset.Set(0, 0.3, 2);
+	car.rear_chassis_size.Set(3.5, 0.3, 1);
+	car.rear_chassis_offset.Set(0, 1, -2);
+	car.cabine_radius = 0.8f;
+	car.cabine_offset.Set(0, 0.9, 1);
+	car.antenaOffset.Set(0, 4, -5);
+
 	// Wheel properties ---------------------------------------
 	float connection_height = 1.2f;
 	float wheel_radius = 0.6f;
