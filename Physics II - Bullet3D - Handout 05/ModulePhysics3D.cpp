@@ -443,7 +443,7 @@ void ModulePhysics3D::RectRoad(int length, int width, int height, vec3 pos, Colo
 		break;
 	case RIGHT_RECT:
 		rot = { 0,1,0 };
-		wall->SetRotation(20, rot);
+		wall->SetRotation(90, rot);
 		break;
 	case RAMP:
 		rot = { 1,0,0 };
@@ -463,6 +463,9 @@ void ModulePhysics3D::RectRoad(int length, int width, int height, vec3 pos, Colo
 		rot = { 0,-1,0 };
 		wall->SetRotation(20, rot);
 		break;
+	case RIGHT_WALL:
+		rot = { 0,1,0 };
+		wall->SetRotation(90, rot);
 	default:
 		break;
 	}

@@ -23,15 +23,34 @@ bool ModuleSceneIntro::Start()
 
 	//App->physics->Ground(500, 500, 0, 0, 0);
 	// Mira te explico	  (length, width, {posicion}, {color}, TIPO DE CUADRADO)
+	//suelo---------
+	//principio
 	App->physics->RectRoad(80, 20, 0.1, { 0, 6, 0 }, { 0,0,0,0 }, FORWARD_RECT);
 	App->physics->RectRoad(80, 20, 0.1, { 0, 6, 80 }, { 0,0,0,0 }, FORWARD_RECT);
+	//salto
 	App->physics->RectRoad(80, 20, 0.1, { 0, 18, 155 }, { 0,0,0,0 }, INVERSE_RAMP);
 	App->physics->RectRoad(80, 20, 0.1, { 0, 18, 255 }, { 0,0,0,0 }, RAMP);
+	//despues del salto
 	App->physics->RectRoad(80, 20, 0.1, { 0, 8, 305 }, { 0,0,0,0 }, FORWARD_RECT);
-	//corners
-	App->physics->RectRoad(80, 0.1, 10, { -3, 8, 380 }, { 0,0,0,0 }, TOP_RIGHT_CORNER);
-	App->physics->RectRoad(80, 20, 0.1, { -10, 7.9, 380 }, { 0,0,0,0 }, TOP_RIGHT_RECT);
-	//walls
+	App->physics->RectRoad(80, 20, 0.1, { 0, 6.5, 385 }, { 0,0,0,0 }, FORWARD_RECT);
+	//carretera derecha
+	App->physics->RectRoad(80, 20, 0.1, { -30, 6.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	//escaleras
+	App->physics->RectRoad(10, 20, 0.1, { -70, 7.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(10, 20, 0.1, { -80, 8.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(10, 20, 0.1, { -90, 9.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(10, 20, 0.1, { -100, 10.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(10, 20, 0.1, { -110, 11.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(10, 20, 0.1, { -120, 12.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(10, 20, 0.1, { -130, 13.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(10, 20, 0.1, { -140, 14.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(10, 20, 0.1, { -150, 15.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(10, 20, 0.1, { -160, 16.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(10, 20, 0.1, { -170, 17.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(10, 20, 0.1, { -180, 18.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(10, 20, 0.1, { -190, 19.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+
+	//walls---------
 	App->physics->RectRoad(80, 0.1, 10, { -10, 8, 0 }, { 0,0,0,0 }, FORWARD_WALL);
 	App->physics->RectRoad(80, 0.1, 10, { 10, 8, 0 }, { 0,0,0,0 }, FORWARD_WALL);
 	App->physics->RectRoad(80, 0.1, 10, { -10, 8, 80 }, { 0,0,0,0 }, FORWARD_WALL);
@@ -39,6 +58,16 @@ bool ModuleSceneIntro::Start()
 
 	App->physics->RectRoad(80, 0.1, 10, { -10, 8, 305 }, { 0,0,0,0 }, FORWARD_WALL);
 	App->physics->RectRoad(80, 0.1, 10, { 10, 8, 305 }, { 0,0,0,0 }, FORWARD_WALL);
+
+	App->physics->RectRoad(80, 0.1, 10, { -10, 8, 385 }, { 0,0,0,0 }, FORWARD_WALL);
+	App->physics->RectRoad(80, 0.1, 10, { 10, 8, 385 }, { 0,0,0,0 }, FORWARD_WALL);
+
+	App->physics->RectRoad(20, 0.1, 10, { 10, 8, 435 }, { 0,0,0,0 }, FORWARD_WALL);
+
+	App->physics->RectRoad(80, 0.1, 10, { -30, 8, 445 }, { 0,0,0,0 }, RIGHT_WALL);
+	App->physics->RectRoad(60, 0.1, 10, { -40, 8, 425 }, { 0,0,0,0 }, RIGHT_WALL);
+
+	//App->physics->RectRoad(80, 20, 0.1, { -10, 7.9, 380 }, { 0,0,0,0 }, TOP_RIGHT_RECT);
 	//Necesito poder modificar el angulo del suelp ara poder hacer giros
 	
 
