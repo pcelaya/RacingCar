@@ -1,68 +1,74 @@
 ﻿  ModuleSceneIntro.cpp
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(32,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(33,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(35,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(36,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(38,34): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(40,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(42,76): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(43,79): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(44,77): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(45,81): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(46,78): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(47,81): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(48,79): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(49,81): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(50,78): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(51,81): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(52,79): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(53,81): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(54,78): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(57,34): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(58,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(59,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(60,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(61,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(62,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(63,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(64,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(65,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(66,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(69,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(70,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(71,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(72,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(73,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(74,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(31,29): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(33,32): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(36,29): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(38,37): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(41,29): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(43,36): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(48,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(49,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(51,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(52,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(54,34): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(56,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(58,76): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(59,79): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(60,77): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(61,81): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(62,78): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(63,81): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(64,79): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(65,81): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(66,78): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(67,81): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(68,79): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(69,81): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(70,78): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(73,34): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(74,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(75,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(76,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(77,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(76,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(77,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(78,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(79,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(80,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(81,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(79,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(80,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(81,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(82,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(83,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(84,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(85,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(86,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(87,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(88,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(91,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(92,37): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(93,37): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(101,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(88,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(89,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(90,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(91,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(92,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(93,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(94,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(95,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(96,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(97,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(98,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(99,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(100,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(101,33): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(102,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(103,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(104,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(107,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(108,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(109,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(110,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(112,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(113,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(115,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(116,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(108,37): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(109,37): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(117,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(118,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(120,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(121,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(119,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(123,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(124,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(125,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(126,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(128,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(129,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(131,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(132,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(134,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(136,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(137,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
   3D Physics.vcxproj -> C:\Users\Usuario\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\Debug\3D Physics - class5.exe

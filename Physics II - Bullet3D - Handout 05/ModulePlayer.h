@@ -19,6 +19,8 @@ public:
 	update_status Update(float dt);
 	bool CleanUp();
 
+	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
+
 public:
 	Sphere* decor;
 	PhysBody3D* decorBody;
@@ -26,5 +28,8 @@ public:
 	float turn;
 	float acceleration;
 	float brake;
-	btVector3 initPosition;
+
+	btVector3 chekpoint1;
+	btVector3 chekpoint2;
+	btVector3 chekpoint3;
 };

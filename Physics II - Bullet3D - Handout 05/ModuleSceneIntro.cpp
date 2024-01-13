@@ -26,6 +26,22 @@ bool ModuleSceneIntro::Start()
 	Color LightYellow = { 0.976f, 0.898f, 0.152f, 0.8f };
 	Color LightBlue = { 0.152f, 0.819f, 0.976f, 0.8f };
 	Color LightOrange = { 0.976f, 0.462f, 0.152f, 0.8f };
+	
+	//------------------checkpoints------------------
+	Cube checkpoint_1(5, 0.1, 5);
+	checkpoint_1.color = LightYellow;
+	checkpoint_1.SetPos(0, 6.2, 10);
+	App->physics->AddBody(checkpoint_1, CHECKPOINT);
+
+	Cube checkpoint_2(5, 0.1, 5);
+	checkpoint_2.color = LightYellow;
+	checkpoint_2.SetPos(-200, 20.2, 435);
+	App->physics->AddBody(checkpoint_2, CHECKPOINT);
+
+	Cube checkpoint_3(5, 0.1, 5);
+	checkpoint_3.color = LightYellow;
+	checkpoint_3.SetPos(-530, 0.2, 435);
+	App->physics->AddBody(checkpoint_3, CHECKPOINT);
 
 	//------------------suelo------------------
 	//principio
@@ -144,9 +160,5 @@ update_status ModuleSceneIntro::Update(float dt)
 	}
 
 	return UPDATE_CONTINUE;
-}
-
-void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
-{
 }
 

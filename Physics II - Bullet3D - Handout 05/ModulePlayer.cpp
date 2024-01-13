@@ -116,9 +116,13 @@ bool ModulePlayer::Start()
 	decorBody = App->physics->AddBody(*decor);
 
 	vehicle = App->physics->AddVehicle(car);
-	initPosition = { 0, 10, 10 };
-	vehicle->SetPos(initPosition.x(), initPosition.y(), initPosition.z());
+	vehicle->SetPos(0, 10, 10);
+	vehicle->collision_listeners.add(this);
 	
+	chekpoint1 = { 0, 6.2, 10 };
+	chekpoint2 = { -200, 20.2, 435 };
+	chekpoint3 = { -530, 0.2, 435 };
+
 	//App->physics->AddConstraintP2P(*decorBody->body, *vehicle->body, car.rear_chassis_offset, car.rear_chassis_offset);
 	return true;
 }
@@ -165,17 +169,25 @@ update_status ModulePlayer::Update(float dt)
 		}
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
+	if (App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 	{
-		vehicle->SetPos(initPosition.x(), initPosition.y(), initPosition.z());
+		vehicle->SetPos(chekpoint1.x(), chekpoint1.y(), chekpoint1.z());
 		turn = 180.0f;
 		turn = acceleration = brake = 0.0f;
 		vehicle->body->setLinearVelocity(btVector3(0,0,0));
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN)
+	if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
 	{
-		vehicle->SetPos(-647.5, 5, 400 );
+		vehicle->SetPos(chekpoint2.x(), chekpoint2.y(), chekpoint2.z());
+		turn = 180.0f;
+		turn = acceleration = brake = 0.0f;
+		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
+	{
+		vehicle->SetPos(chekpoint3.x(), chekpoint3.y(), chekpoint3.z());
 		turn = acceleration = brake = 0.0f;
 		vehicle->body->setLinearVelocity(btVector3(0,0,0));
 	}
@@ -217,5 +229,27 @@ update_status ModulePlayer::Update(float dt)
 	return UPDATE_CONTINUE;
 }
 
+void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
+{
+	/*if (body2->collType == ENEMY)
+	{
+		alive = false;
+		brake = BRAKE_POWER;
+		if (!fxPlayed) { App->audio->PlayFx(2, 0); fxPlayed = true; }
+	}
 
+	if (body2->collType == WIN)
+	{
+		alive = false;
+		if (!fxPlayed) { App->audio->PlayFx(1, 0); fxPlayed = true; }
+	}
 
+	if (body2->collType == CHECKPOINT)
+	{
+		LOG("Collision checkpoint");
+		lastCheckpoint.x = body2->checkpointX;
+		lastCheckpoint.y = body2->checkpointY;
+		lastCheckpoint.z = body2->checkpointZ;
+		if (!fxPlayed) { App->audio->PlayFx(3, 0); fxPlayed = true; }
+	}*/
+}
