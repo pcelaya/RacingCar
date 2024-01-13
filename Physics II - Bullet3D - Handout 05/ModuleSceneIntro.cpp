@@ -28,20 +28,24 @@ bool ModuleSceneIntro::Start()
 	Color LightOrange = { 0.976f, 0.462f, 0.152f, 0.8f };
 	
 	//------------------checkpoints------------------
-	Cube checkpoint_1(5, 0.1, 5);
+	Cube checkpoint_1(20, 2, 5);
 	checkpoint_1.color = LightYellow;
-	checkpoint_1.SetPos(0, 6.2, 10);
-	App->physics->AddBody(checkpoint_1, CHECKPOINT);
+	checkpoint_1.SetPos(0, 7, 10);
+	App->physics->AddBody(checkpoint_1, 1, CHECKPOINT, -2.3, 5.5, 10);
 
-	Cube checkpoint_2(5, 0.1, 5);
+	Cube checkpoint_2(20, 2, 5);
 	checkpoint_2.color = LightYellow;
-	checkpoint_2.SetPos(-200, 20.2, 435);
-	App->physics->AddBody(checkpoint_2, CHECKPOINT);
+	checkpoint_2.SetPos(-200, 21, 435);
+	vec3 rot = { 0,-1,0 };
+	checkpoint_2.SetRotation(90, rot);
+	App->physics->AddBody(checkpoint_2, 1, CHECKPOINT, -202.3, 19.5, 432.7);
 
-	Cube checkpoint_3(5, 0.1, 5);
+	Cube checkpoint_3(20, 2, 5);
 	checkpoint_3.color = LightYellow;
-	checkpoint_3.SetPos(-530, 0.2, 435);
-	App->physics->AddBody(checkpoint_3, CHECKPOINT);
+	checkpoint_3.SetPos(-530, 1, 435);
+	rot = { 0,-1,0 };
+	checkpoint_3.SetRotation(90, rot);
+	App->physics->AddBody(checkpoint_3, 1, CHECKPOINT, -530, 0.5, 432.7);
 
 	//------------------suelo------------------
 	//principio

@@ -123,7 +123,7 @@ bool ModulePlayer::Start()
 	chekpoint2 = { -200, 20.2, 435 };
 	chekpoint3 = { -530, 0.2, 435 };
 
-	//App->physics->AddConstraintP2P(*decorBody->body, *vehicle->body, car.rear_chassis_offset, car.rear_chassis_offset);
+	App->physics->AddConstraintP2P(*decorBody->body, *vehicle->body, car.rear_chassis_offset, car.rear_chassis_offset);
 	return true;
 }
 
@@ -194,7 +194,8 @@ update_status ModulePlayer::Update(float dt)
 	
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 	{
-		turn = 90.0f;
+		vehicle->SetTransform(&lastCheckpontTransform);
+		RestartPlayer(lastCheckpoint.x + 3, lastCheckpoint.y + 1, lastCheckpoint.z + 3);
 		// code to jump or to get up if car is upside down
 	}
 
@@ -231,25 +232,34 @@ update_status ModulePlayer::Update(float dt)
 
 void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
-	/*if (body2->collType == ENEMY)
+	if (body2->collType == ENEMY)
 	{
-		alive = false;
+		//alive = false;
 		brake = BRAKE_POWER;
-		if (!fxPlayed) { App->audio->PlayFx(2, 0); fxPlayed = true; }
+		//if (!fxPlayed) { App->audio->PlayFx(2, 0); fxPlayed = true; }
 	}
 
 	if (body2->collType == WIN)
 	{
-		alive = false;
-		if (!fxPlayed) { App->audio->PlayFx(1, 0); fxPlayed = true; }
+		//alive = false;
+		//if (!fxPlayed) { App->audio->PlayFx(1, 0); fxPlayed = true; }
 	}
 
 	if (body2->collType == CHECKPOINT)
 	{
 		LOG("Collision checkpoint");
+		body2->GetTransform(&lastCheckpontTransform);
 		lastCheckpoint.x = body2->checkpointX;
 		lastCheckpoint.y = body2->checkpointY;
 		lastCheckpoint.z = body2->checkpointZ;
-		if (!fxPlayed) { App->audio->PlayFx(3, 0); fxPlayed = true; }
-	}*/
+		//if (!fxPlayed) { App->audio->PlayFx(3, 0); fxPlayed = true; }
+	}
+}
+
+void ModulePlayer::RestartPlayer(int x, int y, int z)
+{
+	//brake = BRAKE_POWER;
+	vehicle->SetPos(x, y, z);
+	//alive = true;
+	//fxPlayed = false;
 }

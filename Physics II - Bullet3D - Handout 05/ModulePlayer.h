@@ -20,6 +20,7 @@ public:
 	bool CleanUp();
 
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
+	void RestartPlayer(int x, int y, int z);
 
 public:
 	Sphere* decor;
@@ -32,4 +33,7 @@ public:
 	btVector3 chekpoint1;
 	btVector3 chekpoint2;
 	btVector3 chekpoint3;
+
+	vec3 lastCheckpoint;
+	mat4x4 lastCheckpontTransform;
 };
