@@ -46,10 +46,12 @@ bool ModuleSceneIntro::Start()
 	App->physics->RectRoad(10, 20, 0.1, { -160, 16.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
 	App->physics->RectRoad(10, 20, 0.1, { -170, 17.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
 	App->physics->RectRoad(10, 20, 0.1, { -180, 18.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
-	App->physics->RectRoad(40, 20, 0.1, { -205, 19.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(45, 20, 0.1, { -210, 19.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
 
 	// Mega Rampa
-	App->physics->RectRoad(20, 10, 0.1, { -240, 17, 435 }, { 0,0,0,0 }, LEFT_RECT);
+	App->physics->RectRoad(20, 160, 0.1, { -300, 51, 435 }, { 0,0,0,0 }, RIGHT_INVERSE_RAMP);
+	App->physics->RectRoad(45, 20, 0.1, { -395, 85, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(20, 10, 0.1, { -425, 80, 435 }, { 0,0,0,0 }, LEFT_RECT);
 	App->physics->RectRoad(20, 0.1, 10, { -240, 17, 425 }, { 0,0,0,0 }, WALL_RAMP);
 	App->physics->RectRoad(20, 0.1, 5, { -240, 17, 445 }, { 0,0,0,0 }, WALL_RAMP);
 
