@@ -52,9 +52,23 @@ bool ModuleSceneIntro::Start()
 	App->physics->RectRoad(20, 160, 0.1, { -300, 51, 435 }, { 0,0,0,0 }, RIGHT_INVERSE_RAMP);
 	App->physics->RectRoad(45, 20, 0.1, { -395, 85, 435 }, { 0,0,0,0 }, RIGHT_RECT);
 	App->physics->RectRoad(20, 10, 0.1, { -425, 80, 435 }, { 0,0,0,0 }, LEFT_RECT);
-	App->physics->RectRoad(20, 0.1, 10, { -240, 17, 425 }, { 0,0,0,0 }, WALL_RAMP);
-	App->physics->RectRoad(20, 0.1, 5, { -240, 17, 445 }, { 0,0,0,0 }, WALL_RAMP);
-
+	App->physics->RectRoad(20, 10, 0.1, { -435, 70, 435 }, { 0,0,0,0 }, LEFT_RECT);
+	App->physics->RectRoad(20, 10, 0.1, { -445, 60, 435 }, { 0,0,0,0 }, LEFT_RECT);
+	App->physics->RectRoad(20, 10, 0.1, { -455, 50, 435 }, { 0,0,0,0 }, LEFT_RECT);
+	App->physics->RectRoad(20, 10, 0.1, { -465, 40, 435 }, { 0,0,0,0 }, LEFT_RECT);
+	App->physics->RectRoad(20, 10, 0.1, { -475, 30, 435 }, { 0,0,0,0 }, LEFT_RECT);
+	App->physics->RectRoad(20, 10, 0.1, { -485, 20, 435 }, { 0,0,0,0 }, LEFT_RECT);
+	App->physics->RectRoad(20, 10, 0.1, { -495, 10, 435 }, { 0,0,0,0 }, LEFT_RECT);
+	
+	// Final
+	App->physics->RectRoad(45, 20, 0.1, { -530, 0, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(45, 0.1, 10, { -530, 5, 445 }, { 0,0,0,0 }, RIGHT_WALL);
+	App->physics->RectRoad(45, 0.1, 10, { -530, 5, 425 }, { 0,0,0,0 }, RIGHT_WALL);
+	App->physics->RectRoad(45, 20, 0.1, { -575, 0, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(45, 0.1, 10, { -575, 5, 445 }, { 0,0,0,0 }, RIGHT_WALL);
+	App->physics->RectRoad(45, 0.1, 10, { -575, 5, 425 }, { 0,0,0,0 }, RIGHT_WALL);
+	App->physics->RectRoad(20, 0.1, 10, { -595, 5, 435}, { 0,0,0,0 }, FORWARD_WALL);
+	
 	//------------------walls------------------
 	App->physics->RectRoad(80, 0.1, 10, { -10, 8, 0 }, { 0,0,0,0 }, FORWARD_WALL);
 	App->physics->RectRoad(80, 0.1, 10, { 10, 8, 0 }, { 0,0,0,0 }, FORWARD_WALL);
