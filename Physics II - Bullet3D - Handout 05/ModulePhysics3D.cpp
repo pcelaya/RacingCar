@@ -66,6 +66,8 @@ bool ModulePhysics3D::Start()
 		world->addRigidBody(body);
 	}
 
+	gravity = GRAVITY;
+
 	return true;
 }
 
@@ -135,6 +137,18 @@ update_status ModulePhysics3D::Update(float dt)
 			AddBody(s)->Push(-(App->camera->Z.x * force), -(App->camera->Z.y * force), -(App->camera->Z.z * force));
 		}
 	}
+
+	if (App->input->GetKey(SDL_SCANCODE_G) == KEY_DOWN)
+	{
+		gravity *= 1.5f;
+		world->setGravity(gravity);
+	}
+	else if (App->input->GetKey(SDL_SCANCODE_H) == KEY_DOWN)
+	{
+		gravity *= 0.5f;
+		world->setGravity(gravity);
+	}
+
 
 	return UPDATE_CONTINUE;
 }
@@ -470,4 +484,9 @@ void ModulePhysics3D::RectRoad(int length, int width, int height, vec3 pos, Colo
 	}
 
 	AddBody(*wall, 1000000.0f, WALL);
+}
+
+float ModulePhysics3D::GetGravity() const
+{
+	return world->getGravity().y();
 }

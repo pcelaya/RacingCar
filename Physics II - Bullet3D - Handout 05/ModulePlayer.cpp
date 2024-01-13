@@ -180,6 +180,18 @@ update_status ModulePlayer::Update(float dt)
 		// code to jump or to get up if car is upside down
 	}
 
+	if (App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN)
+	{
+		vehicle->info.mass += 50.0f;
+	}
+	else if (App->input->GetKey(SDL_SCANCODE_N) == KEY_DOWN)
+	{
+		if (vehicle->info.mass > 0)
+		{
+			vehicle->info.mass -= 50.0f;
+		}
+	}
+
 	vehicle->ApplyEngineForce(acceleration);
 	vehicle->Turn(turn);
 	vehicle->Brake(brake);
@@ -187,8 +199,9 @@ update_status ModulePlayer::Update(float dt)
 	vehicle->Render();
 
 	char title[80];
-	sprintf_s(title, "%.1f Km/h", vehicle->GetKmh());
+	sprintf_s(title, "%.1f Km/h    %.1f m/s^2    %.1f kg", vehicle->GetKmh(), App->physics->GetGravity(), vehicle->info.mass);
 	App->window->SetTitle(title);
+
 
 	mat4x4 decorMatrix;
 	decorBody->GetTransform(&decorMatrix);

@@ -38,9 +38,11 @@ public:
 	void Ground(int length, int width, int x, int y, int z);
 	void RectRoad(int length, int width, int height, vec3 pos, Color c, RoadTypes direction);
 
+	float GetGravity() const;
 private:
 
 	bool debug;
+	btVector3 gravity;
 
 	btDefaultCollisionConfiguration*	collision_conf;
 	btCollisionDispatcher*				dispatcher;
