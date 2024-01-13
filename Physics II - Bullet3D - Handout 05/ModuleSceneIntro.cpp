@@ -21,20 +21,18 @@ bool ModuleSceneIntro::Start()
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
 
-	//App->physics->Ground(500, 500, 0, 0, 0);
-	// Mira te explico	  (length, width, {posicion}, {color}, TIPO DE CUADRADO)
-	//suelo---------
+	//------------------suelo------------------
 	//principio
-	App->physics->RectRoad(80, 20, 0.1, { 0, 6, 0 }, { 0,0,0,0 }, FORWARD_RECT);
-	App->physics->RectRoad(80, 20, 0.1, { 0, 6, 80 }, { 0,0,0,0 }, FORWARD_RECT);
+	App->physics->RectRoad(80, 20, 0.1, { 0, 6, 0 }, { 255,0,0,0 }, FORWARD_RECT);
+	App->physics->RectRoad(80, 20, 0.1, { 0, 6, 80 }, { 255,0,0,0 }, FORWARD_RECT);
 	//salto
-	App->physics->RectRoad(80, 20, 0.1, { 0, 18, 155 }, { 0,0,0,0 }, INVERSE_RAMP);
-	App->physics->RectRoad(80, 20, 0.1, { 0, 18, 255 }, { 0,0,0,0 }, RAMP);
+	App->physics->RectRoad(80, 20, 0.1, { 0, 18, 155 }, { 255,0,0,0 }, INVERSE_RAMP);
+	App->physics->RectRoad(80, 20, 0.1, { 0, 18, 255 }, { 255,0,0,0 }, RAMP);
 	//despues del salto
-	App->physics->RectRoad(80, 20, 0.1, { 0, 8, 305 }, { 0,0,0,0 }, FORWARD_RECT);
-	App->physics->RectRoad(80, 20, 0.1, { 0, 6.5, 385 }, { 0,0,0,0 }, FORWARD_RECT);
+	App->physics->RectRoad(80, 20, 0.1, { 0, 8, 305 }, { 255,0,0,0 }, FORWARD_RECT);
+	App->physics->RectRoad(80, 20, 0.1, { 0, 6.5, 385 }, { 255,0,0,0 }, FORWARD_RECT);
 	//carretera derecha
-	App->physics->RectRoad(80, 20, 0.1, { -30, 6.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(80, 20, 0.1, { -30, 6.5, 435 }, { 255,0,0,0 }, RIGHT_RECT);
 	//escaleras
 	App->physics->RectRoad(10, 20, 0.1, { -70, 7.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
 	App->physics->RectRoad(10, 20, 0.1, { -80, 8.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
@@ -48,9 +46,14 @@ bool ModuleSceneIntro::Start()
 	App->physics->RectRoad(10, 20, 0.1, { -160, 16.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
 	App->physics->RectRoad(10, 20, 0.1, { -170, 17.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
 	App->physics->RectRoad(10, 20, 0.1, { -180, 18.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
-	App->physics->RectRoad(10, 20, 0.1, { -190, 19.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(40, 20, 0.1, { -205, 19.5, 435 }, { 0,0,0,0 }, RIGHT_RECT);
 
-	//walls---------
+	// Mega Rampa
+	App->physics->RectRoad(20, 10, 0.1, { -240, 17, 435 }, { 0,0,0,0 }, LEFT_RECT);
+	App->physics->RectRoad(20, 0.1, 10, { -240, 17, 425 }, { 0,0,0,0 }, WALL_RAMP);
+	App->physics->RectRoad(20, 0.1, 5, { -240, 17, 445 }, { 0,0,0,0 }, WALL_RAMP);
+
+	//------------------walls------------------
 	App->physics->RectRoad(80, 0.1, 10, { -10, 8, 0 }, { 0,0,0,0 }, FORWARD_WALL);
 	App->physics->RectRoad(80, 0.1, 10, { 10, 8, 0 }, { 0,0,0,0 }, FORWARD_WALL);
 	App->physics->RectRoad(80, 0.1, 10, { -10, 8, 80 }, { 0,0,0,0 }, FORWARD_WALL);

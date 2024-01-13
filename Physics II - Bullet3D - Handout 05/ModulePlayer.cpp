@@ -156,7 +156,7 @@ update_status ModulePlayer::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
 	{
 		vehicle->SetPos(initPosition.x(), initPosition.y(), initPosition.z());
-		vehicle->Turn(180.0f);
+		turn = 180.0f;
 		turn = acceleration = brake = 0.0f;
 		vehicle->body->setLinearVelocity(btVector3(0,0,0));
 	}
@@ -167,9 +167,10 @@ update_status ModulePlayer::Update(float dt)
 		turn = acceleration = brake = 0.0f;
 		vehicle->body->setLinearVelocity(btVector3(0,0,0));
 	}
-
+	
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 	{
+		turn = 90.0f;
 		// code to jump or to get up if car is upside down
 	}
 

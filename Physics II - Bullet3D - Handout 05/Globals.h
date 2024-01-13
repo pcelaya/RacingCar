@@ -33,7 +33,8 @@ enum RoadTypes
 	INVERSE_RAMP,
 	TOP_RIGHT_RECT,
 	FORWARD_WALL,
-	RIGHT_WALL
+	RIGHT_WALL,
+	WALL_RAMP
 };
 
 enum CollisionObject

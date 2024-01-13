@@ -413,19 +413,9 @@ void ModulePhysics3D::Ground(int length, int width, int x, int y, int z)
 
 void ModulePhysics3D::RectRoad(int length, int width, int height, vec3 pos, Color c, RoadTypes direction)
 {
-	bool colorSwitch = false; 
 	Cube* wall = new Cube(width, height, length);
 
-	if (colorSwitch) 
-	{ 
-		wall->color = { 255,255,255 }; 
-		colorSwitch = false; 
-	}
-	else 
-	{ 
-		wall->color = { 255,0,0 }; 
-		colorSwitch = true; 
-	}
+	wall->color = c;
 
 	App->scene_intro->PrimitiveObjects.PushBack(wall);
 	wall->SetPos(pos.x, pos.y, pos.z);
@@ -438,8 +428,8 @@ void ModulePhysics3D::RectRoad(int length, int width, int height, vec3 pos, Colo
 		rot = { 0,0,0 };
 		break;
 	case LEFT_RECT:
-		rot = { 0,-1,0 };
-		wall->SetRotation(20, rot);
+		rot = { 0,0,1 };
+		wall->SetRotation(45, rot);
 		break;
 	case RIGHT_RECT:
 		rot = { 0,1,0 };
@@ -466,6 +456,11 @@ void ModulePhysics3D::RectRoad(int length, int width, int height, vec3 pos, Colo
 	case RIGHT_WALL:
 		rot = { 0,1,0 };
 		wall->SetRotation(90, rot);
+		break;
+	case WALL_RAMP:
+		rot = { 0,1,0};
+		wall->SetRotation(90, rot);
+		break;
 	default:
 		break;
 	}
