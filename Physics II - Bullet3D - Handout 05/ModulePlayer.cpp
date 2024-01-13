@@ -105,7 +105,8 @@ bool ModulePlayer::Start()
 	car.wheels[3].steering = false;
 
 	vehicle = App->physics->AddVehicle(car);
-	vehicle->SetPos(0, 12, 10);
+	initPosition = { 0, 10, 10 };
+	vehicle->SetPos(initPosition.x(), initPosition.y(), initPosition.z());
 	
 	return true;
 }
@@ -123,24 +124,24 @@ update_status ModulePlayer::Update(float dt)
 {
 	turn = acceleration = brake = 0.0f;
 
-	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
+	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT || App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
 	{
 		acceleration = MAX_ACCELERATION;
 	}
 
-	if(App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
+	if(App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT || App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
 	{
 		if(turn < TURN_DEGREES)
 			turn +=  TURN_DEGREES;
 	}
 
-	if(App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
+	if(App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT || App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
 	{
 		if(turn > -TURN_DEGREES)
 			turn -= TURN_DEGREES;
 	}
 
-	if(App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
+	if(App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT || App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
 	{
 		if (acceleration > 0)
 		{
@@ -150,6 +151,26 @@ update_status ModulePlayer::Update(float dt)
 		{
 			acceleration = -MAX_ACCELERATION;
 		}
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
+	{
+		vehicle->SetPos(initPosition.x(), initPosition.y(), initPosition.z());
+		vehicle->Turn(180.0f);
+		turn = acceleration = brake = 0.0f;
+		vehicle->body->setLinearVelocity(btVector3(0,0,0));
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN)
+	{
+		vehicle->SetPos(-200, 23, 435);
+		turn = acceleration = brake = 0.0f;
+		vehicle->body->setLinearVelocity(btVector3(0,0,0));
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+	{
+		// code to jump or to get up if car is upside down
 	}
 
 	vehicle->ApplyEngineForce(acceleration);

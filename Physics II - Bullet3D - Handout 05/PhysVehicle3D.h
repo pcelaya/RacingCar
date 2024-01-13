@@ -62,8 +62,8 @@ public:
 	void Brake(float force);
 	void Turn(float degrees);
 	float GetKmh() const;
-public:
 
+public:
 	VehicleInfo info;
 	btRaycastVehicle* vehicle;
 };
