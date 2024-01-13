@@ -47,4 +47,6 @@ C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModuleS
 C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(84,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(86,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(87,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+  PhysVehicle3D.cpp
+  Generando código...
   3D Physics.vcxproj -> C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\Debug\3D Physics - class5.exe
