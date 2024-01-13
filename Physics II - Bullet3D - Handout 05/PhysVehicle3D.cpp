@@ -64,6 +64,31 @@ void PhysVehicle3D::Render()
 	btVector3 offsetCabine(info.cabine_offset.x, info.cabine_offset.y, info.cabine_offset.z);
 	offsetCabine = offsetCabine.rotate(q.getAxis(), q.getAngle());
 
+	Cube RearChassisRight(info.rear_chassis_right_size.x, info.rear_chassis_right_size.y, info.rear_chassis_right_size.z);
+	RearChassisRight.color = Red;
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&RearChassisRight.transform);
+	q = vehicle->getChassisWorldTransform().getRotation();
+	btVector3 offsetRearRight(info.rear_chassis_right_offset.x, info.rear_chassis_right_offset.y, info.rear_chassis_right_offset.z);
+	offsetRearRight = offsetRearRight.rotate(q.getAxis(), q.getAngle());
+
+	Cube RearChassisLeft(info.rear_chassis_left_size.x, info.rear_chassis_left_size.y, info.rear_chassis_left_size.z);
+	RearChassisLeft.color = Red;
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&RearChassisLeft.transform);
+	q = vehicle->getChassisWorldTransform().getRotation();
+	btVector3 offsetRearLeft(info.rear_chassis_left_offset.x, info.rear_chassis_left_offset.y, info.rear_chassis_left_offset.z);
+	offsetRearLeft = offsetRearLeft.rotate(q.getAxis(), q.getAngle());
+
+	Cylinder antena;
+	antena.color = Red;
+	antena.radius = info.antenaReadius;
+	antena.height = info.antenaHeight;
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&antena.transform);
+	q = vehicle->getChassisWorldTransform().getRotation();
+	btVector3 offsetAntena(info.antenaOffset.x, info.antenaOffset.y, info.antenaOffset.z);
+	offsetAntena = offsetAntena.rotate(q.getAxis(), q.getAngle());
+	vec3 rot = { 0,0,1 };
+	antena.SetRotation(90, rot);
+
 	chassis.transform.M[12] += offset.getX();
 	chassis.transform.M[13] += offset.getY();
 	chassis.transform.M[14] += offset.getZ();
@@ -76,6 +101,18 @@ void PhysVehicle3D::Render()
 	RearChassis.transform.M[13] += offsetRear.getY();
 	RearChassis.transform.M[14] += offsetRear.getZ();
 
+	RearChassisRight.transform.M[12] += offsetRearRight.getX();
+	RearChassisRight.transform.M[13] += offsetRearRight.getY();
+	RearChassisRight.transform.M[14] += offsetRearRight.getZ();
+
+	RearChassisLeft.transform.M[12] += offsetRearLeft.getX();
+	RearChassisLeft.transform.M[13] += offsetRearLeft.getY();
+	RearChassisLeft.transform.M[14] += offsetRearLeft.getZ();
+
+	antena.transform.M[12] += offsetAntena.getX();
+	antena.transform.M[13] += offsetAntena.getY();
+	antena.transform.M[14] += offsetAntena.getZ();
+
 	cabine.transform.M[12] += offsetCabine.getX();
 	cabine.transform.M[13] += offsetCabine.getY();
 	cabine.transform.M[14] += offsetCabine.getZ();
@@ -84,6 +121,9 @@ void PhysVehicle3D::Render()
 	chassis.Render();
 	FrontChassis.Render();
 	RearChassis.Render();
+	RearChassisRight.Render();
+	RearChassisLeft.Render();
+	antena.Render();
 	cabine.Render();
 }
 

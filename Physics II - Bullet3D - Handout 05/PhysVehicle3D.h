@@ -43,11 +43,18 @@ struct VehicleInfo
 	vec3 rear_chassis_offset;
 	vec3 cabine_offset;
 
+	vec3 rear_chassis_right_size;
+	vec3 rear_chassis_right_offset;
+	vec3 rear_chassis_left_size;
+	vec3 rear_chassis_left_offset;
+
 
 	Wheel* wheels;
 	int num_wheels;
 
 	vec3 antenaOffset;
+	float antenaHeight;
+	float antenaReadius;
 };
 
 
