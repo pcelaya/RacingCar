@@ -22,7 +22,7 @@ bool ModulePlayer::Start()
 
 	// Car properties ----------------------------------------
 	car.chassis_size.Set(2.5, 1.3, 4);
-	car.chassis_offset.Set(0, 1, 0);
+	car.chassis_offset.Set(0, 1.5, 0);
 	car.mass = 500.0f;
 	car.suspensionStiffness = 15.88f;
 	car.suspensionCompression = 0.83f;
@@ -175,7 +175,7 @@ update_status ModulePlayer::Update(float dt)
 
 	if (App->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN)
 	{
-		vehicle->SetPos(-200, 23, 435);
+		vehicle->SetPos(-647.5, 5, 400 );
 		turn = acceleration = brake = 0.0f;
 		vehicle->body->setLinearVelocity(btVector3(0,0,0));
 	}

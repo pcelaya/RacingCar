@@ -428,9 +428,7 @@ void ModulePhysics3D::Ground(int length, int width, int x, int y, int z)
 void ModulePhysics3D::RectRoad(int length, int width, int height, vec3 pos, Color c, RoadTypes direction)
 {
 	Cube* wall = new Cube(width, height, length);
-
 	wall->color = c;
-
 	App->scene_intro->PrimitiveObjects.PushBack(wall);
 	wall->SetPos(pos.x, pos.y, pos.z);
 
@@ -484,6 +482,15 @@ void ModulePhysics3D::RectRoad(int length, int width, int height, vec3 pos, Colo
 	}
 
 	AddBody(*wall, 1000000.0f, WALL);
+}
+
+void ModulePhysics3D::AddBall(int radius, vec3 pos, Color c)
+{
+	Sphere* s = new Sphere(radius);
+	s->color = c;
+	App->scene_intro->PrimitiveObjects.PushBack(s);
+	s->SetPos(pos.x, pos.y, pos.z);
+	AddBody(*s);
 }
 
 float ModulePhysics3D::GetGravity() const
