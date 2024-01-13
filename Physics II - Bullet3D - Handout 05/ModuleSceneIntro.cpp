@@ -88,13 +88,9 @@ bool ModuleSceneIntro::Start()
 	App->physics->RectRoad(10, 0.1, 10, { -647.5, 5, 400 }, { 0,0,0,0 }, RIGHT_WALL);
 	Sphere s(3);
 	s.SetPos(-652.5, 1, 430);
-	float force = 50.0f;
-	App->physics->AddBody(s)->Push(-(App->camera->Z.x * force), -(App->camera->Z.y * force), -(App->camera->Z.z * force));
-
-	Sphere r(3);
-	r.SetPos(-652.5, 1, 425);
-	float force = 50.0f;
-	App->physics->AddBody(r)->Push(-(App->camera->Z.x * force), -(App->camera->Z.y * force), -(App->camera->Z.z * force));
+	App->physics->AddBody(s);
+	s.SetPos(-652.5, 1, 425);
+	App->physics->AddBody(s);
 
 	App->physics->RectRoad(10, 0.1, 10, { -657.5, 5, 377.5 }, { 0,0,0,0 }, RIGHT_WALL);
 	App->physics->RectRoad(10, 0.1, 10, { -647.5, 5, 355 }, { 0,0,0,0 }, RIGHT_WALL);
