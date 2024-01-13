@@ -20,7 +20,8 @@ public:
 	bool CleanUp();
 
 public:
-
+	Sphere* decor;
+	PhysBody3D* decorBody;
 	PhysVehicle3D* vehicle;
 	float turn;
 	float acceleration;

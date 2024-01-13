@@ -108,6 +108,13 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.axis = true;
 	p.Render();
 
+	for (uint n = 0; n < PrimitiveObjects.Count(); n++)
+	{
+		//PrimitiveObjects[n]->body->GetTransform(&transMatrix);
+		//PrimitiveObjects[n]->transform = transMatrix;
+		PrimitiveObjects[n]->Render();
+	}
+
 	return UPDATE_CONTINUE;
 }
 

@@ -21,8 +21,8 @@ bool ModulePlayer::Start()
 	VehicleInfo car;
 
 	// Car properties ----------------------------------------
-	car.chassis_size.Set(2, 2, 4);
-	car.chassis_offset.Set(0, 1.5, 0);
+	car.chassis_size.Set(2, 1, 4);
+	car.chassis_offset.Set(0, 1, 0);
 	car.mass = 500.0f;
 	car.suspensionStiffness = 15.88f;
 	car.suspensionCompression = 0.83f;
@@ -104,10 +104,16 @@ bool ModulePlayer::Start()
 	car.wheels[3].brake = true;
 	car.wheels[3].steering = false;
 
+	decor = new Sphere(0.2f);
+	//car.jointOffset = car.chassis_offset;
+	//car.joint = App->physics->AddBody(Cube(0.1f,0.1f,0.1f),1.0f);
+	decorBody = App->physics->AddBody(*decor);
+
 	vehicle = App->physics->AddVehicle(car);
 	initPosition = { 0, 10, 10 };
 	vehicle->SetPos(initPosition.x(), initPosition.y(), initPosition.z());
 	
+	//App->physics->AddConstraintP2P(*decorBody->body, *vehicle->body, car.rear_chassis_offset, car.rear_chassis_offset);
 	return true;
 }
 
@@ -183,6 +189,11 @@ update_status ModulePlayer::Update(float dt)
 	char title[80];
 	sprintf_s(title, "%.1f Km/h", vehicle->GetKmh());
 	App->window->SetTitle(title);
+
+	mat4x4 decorMatrix;
+	decorBody->GetTransform(&decorMatrix);
+	decor->transform = decorMatrix;
+	decor->Render();
 
 	return UPDATE_CONTINUE;
 }
