@@ -4,6 +4,7 @@
 #include "Primitive.h"
 #include "PhysBody3D.h"
 #include "ModulePhysics3D.h"
+#include "PhysVehicle3D.h"
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -67,8 +68,39 @@ bool ModuleSceneIntro::Start()
 	App->physics->RectRoad(45, 20, 0.1, { -575, 0, 435 }, { 0,0,0,0 }, RIGHT_RECT);
 	App->physics->RectRoad(45, 0.1, 10, { -575, 5, 445 }, { 0,0,0,0 }, RIGHT_WALL);
 	App->physics->RectRoad(45, 0.1, 10, { -575, 5, 425 }, { 0,0,0,0 }, RIGHT_WALL);
-	App->physics->RectRoad(20, 0.1, 10, { -595, 5, 435}, { 0,0,0,0 }, FORWARD_WALL);
+	App->physics->RectRoad(45, 20, 0.1, { -620, 0, 435 }, { 0,0,0,0 }, RIGHT_RECT);
+	App->physics->RectRoad(45, 0.1, 10, { -620, 5, 445 }, { 0,0,0,0 }, RIGHT_WALL);
+	App->physics->RectRoad(45, 0.1, 10, { -620, 5, 425 }, { 0,0,0,0 }, RIGHT_WALL);
+	App->physics->RectRoad(45, 20, 0.1, { -652.5, 0, 422.5 }, { 0,0,0,0 }, FORWARD_RECT);
+	App->physics->RectRoad(20, 0.1, 10, { -652.5, 5, 445 }, { 0,0,0,0 }, RIGHT_WALL);
+	App->physics->RectRoad(45, 0.1, 10, { -662.5, 5, 422.5 }, { 0,0,0,0 }, FORWARD_WALL);
+	App->physics->RectRoad(25, 0.1, 10, { -642.5, 5, 412.5 }, { 0,0,0,0 }, FORWARD_WALL);
+	App->physics->RectRoad(45, 20, 0.1, { -652.5, 0, 377.5 }, { 0,0,0,0 }, FORWARD_RECT);
+	App->physics->RectRoad(45, 0.1, 10, { -662.5, 5, 377.5 }, { 0,0,0,0 }, FORWARD_WALL);
+	App->physics->RectRoad(45, 0.1, 10, { -642.5, 5, 377.5 }, { 0,0,0,0 }, FORWARD_WALL);
+	App->physics->RectRoad(45, 20, 0.1, { -652.5, 0, 332.5 }, { 0,0,0,0 }, FORWARD_RECT);
+	App->physics->RectRoad(45, 0.1, 10, { -662.5, 5, 332.5 }, { 0,0,0,0 }, FORWARD_WALL);
+	App->physics->RectRoad(45, 0.1, 10, { -642.5, 5, 332.5 }, { 0,0,0,0 }, FORWARD_WALL);
+	App->physics->RectRoad(20, 0.1, 10, { -652.5, 5, 310 }, { 0,0,0,0 }, RIGHT_WALL);
+
+	// Obstaculos Fnal
 	
+	App->physics->RectRoad(10, 0.1, 10, { -647.5, 5, 400 }, { 0,0,0,0 }, RIGHT_WALL);
+	Sphere s(3);
+	s.SetPos(-652.5, 1, 430);
+	float force = 50.0f;
+	App->physics->AddBody(s)->Push(-(App->camera->Z.x * force), -(App->camera->Z.y * force), -(App->camera->Z.z * force));
+
+	Sphere r(3);
+	r.SetPos(-652.5, 1, 425);
+	float force = 50.0f;
+	App->physics->AddBody(r)->Push(-(App->camera->Z.x * force), -(App->camera->Z.y * force), -(App->camera->Z.z * force));
+
+	App->physics->RectRoad(10, 0.1, 10, { -657.5, 5, 377.5 }, { 0,0,0,0 }, RIGHT_WALL);
+	App->physics->RectRoad(10, 0.1, 10, { -647.5, 5, 355 }, { 0,0,0,0 }, RIGHT_WALL);
+	App->physics->RectRoad(10, 0.1, 10, { -657.5, 5, 332.5 }, { 0,0,0,0 }, RIGHT_WALL);
+
+
 	//------------------walls------------------
 	App->physics->RectRoad(80, 0.1, 10, { -10, 8, 0 }, { 0,0,0,0 }, FORWARD_WALL);
 	App->physics->RectRoad(80, 0.1, 10, { 10, 8, 0 }, { 0,0,0,0 }, FORWARD_WALL);
@@ -108,12 +140,12 @@ update_status ModuleSceneIntro::Update(float dt)
 	p.axis = true;
 	p.Render();
 
-	for (uint n = 0; n < PrimitiveObjects.Count(); n++)
-	{
-		//PrimitiveObjects[n]->body->GetTransform(&transMatrix);
-		//PrimitiveObjects[n]->transform = transMatrix;
-		PrimitiveObjects[n]->Render();
-	}
+	//for (uint n = 0; n < PrimitiveObjects.Count(); n++)
+	//{
+	//	//PrimitiveObjects[n]->body->GetTransform(&transMatrix);
+	//	//PrimitiveObjects[n]->transform = transMatrix;
+	//	PrimitiveObjects[n]->Render();
+	//}
 
 	return UPDATE_CONTINUE;
 }
