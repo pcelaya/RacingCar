@@ -17,14 +17,15 @@ ModulePlayer::~ModulePlayer()
 bool ModulePlayer::Start()
 {
 	LOG("Loading player");
-	alive = true;
 	fxPlayed = false;
+	auxSeconds = 0;
 	App->audio->LoadFx("SonidoRacing Car/CAIDA.wav");
 	App->audio->LoadFx("SonidoRacing Car/CHECKPOINT.wav");
 	App->audio->LoadFx("SonidoRacing Car/CHOQUE_PARED.wav");
 	App->audio->LoadFx("SonidoRacing Car/MUERTE_POR_ENEMIGO.wav");
 	App->audio->LoadFx("SonidoRacing Car/WIN.wav");
-	VehicleInfo car;
+	App->audio->LoadFx("SonidoRacing Car/LOSE.wav");
+	MaxSeconds = 300;
 
 	// Car properties ----------------------------------------
 	car.chassis_size.Set(2.5, 1.3, 4);
@@ -51,6 +52,8 @@ bool ModulePlayer::Start()
 	car.rear_chassis_right_offset.Set(1.6, 2.4, -2);
 	car.rear_chassis_left_size.Set(0.3, 0.2, 1);
 	car.rear_chassis_left_offset.Set(-1.6, 2.4, -2);
+
+	vehicleArea = car.chassis_size.x * car.chassis_size.y;
 
 	// Wheel properties ---------------------------------------
 	float connection_height = 1.2f;
@@ -130,7 +133,10 @@ bool ModulePlayer::Start()
 	chekpoint2 = { -200, 20.2, 435 };
 	chekpoint3 = { -530, 0.2, 435 };
 
-	//App->physics->AddConstraintP2P(*decorBody->body, *vehicle->body, car.rear_chassis_offset, car.rear_chassis_offset);
+	constrain = App->physics->AddConstraintP2P(*decorBody->body, *vehicle->body, car.rear_chassis_offset, car.rear_chassis_offset);
+	lastCheckpoint = App->scene_intro->cp1->checkpointX;
+	startTime = SDL_GetTicks();
+
 	return true;
 }
 
@@ -178,25 +184,41 @@ update_status ModulePlayer::Update(float dt)
 
 	if (App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 	{
+		App->scene_intro->cp1->GetTransform(&debugCheckpontTransform);
+		vehicle->SetTransform(&debugCheckpontTransform);
 		vehicle->SetPos(chekpoint1.x(), chekpoint1.y(), chekpoint1.z());
-		turn = 180.0f;
 		turn = acceleration = brake = 0.0f;
-		vehicle->body->setLinearVelocity(btVector3(0,0,0));
+		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+		accelerated = false;
+		reduced = false;
+		ChangeFriction(defaultFriction);
+		actualFriction = defaultFriction;
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
 	{
+		App->scene_intro->cp2->GetTransform(&debugCheckpontTransform);
+		vehicle->SetTransform(&debugCheckpontTransform);
 		vehicle->SetPos(chekpoint2.x(), chekpoint2.y(), chekpoint2.z());
-		turn = 180.0f;
 		turn = acceleration = brake = 0.0f;
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+		accelerated = false;
+		reduced = false;
+		ChangeFriction(defaultFriction);
+		actualFriction = defaultFriction;
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
 	{
+		App->scene_intro->cp3->GetTransform(&debugCheckpontTransform);
+		vehicle->SetTransform(&debugCheckpontTransform);
 		vehicle->SetPos(chekpoint3.x(), chekpoint3.y(), chekpoint3.z());
 		turn = acceleration = brake = 0.0f;
-		vehicle->body->setLinearVelocity(btVector3(0,0,0));
+		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+		accelerated = false;
+		reduced = false;
+		ChangeFriction(defaultFriction);
+		actualFriction = defaultFriction;
 	}
 	
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
@@ -205,7 +227,8 @@ update_status ModulePlayer::Update(float dt)
 		RestartPlayer(lastCheckpoint.x + 3, lastCheckpoint.y + 1, lastCheckpoint.z + 3);
 		turn = acceleration = brake = 0.0f;
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
-		// code to jump or to get up if car is upside down
+		ChangeFriction(defaultFriction);
+		actualFriction = defaultFriction;
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN)
@@ -226,15 +249,84 @@ update_status ModulePlayer::Update(float dt)
 
 	vehicle->Render();
 
-	char title[80];
-	sprintf_s(title, "%.1f Km/h    %.1f m/s^2    %.1f kg", vehicle->GetKmh(), App->physics->GetGravity(), vehicle->info.mass);
+	if (App->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN) {
+		if (decorRender) {
+			decorRender = false;
+			App->physics->world->removeConstraint(constrain);
+			App->physics->world->removeRigidBody(decorBody->body);
+		}
+		else {
+			decor = new Sphere(0.2f);
+			decorBody = App->physics->AddBody(*decor);
+			constrain = App->physics->AddConstraintP2P(*decorBody->body, *vehicle->body, car.rear_chassis_offset, car.rear_chassis_offset);
+			decorRender = true;
+		}
+	}
+
+	char title[255];
+	sprintf_s(title, "|Ka-chow Car| Debug: %d Actual Vel: %.1f Km/h Gravity: %.1f m/s^2 Vehicle Mass: %.1f kg AirDrag X: %f, Y: %f, Z: %f Lift X: %f, Y: %f, Z: %f WheelFriction: %.1f Seconds to end: %d",
+		App->physics->debug, vehicle->GetKmh(), App->physics->GetGravity(), vehicle->info.mass, Drag.x(), Drag.y(), Drag.z(), Lift.x(), Lift.y(), Lift.z(), actualFriction, MaxSeconds);
 	App->window->SetTitle(title);
 
+	
 
-	mat4x4 decorMatrix;
-	decorBody->GetTransform(&decorMatrix);
-	decor->transform = decorMatrix;
-	decor->Render();
+	if (decorRender) {
+		mat4x4 decorMatrix;
+		decorBody->GetTransform(&decorMatrix);
+		decor->transform = decorMatrix;
+		decor->Render();
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_5) == KEY_DOWN)
+	{
+		vehicle->body->setLinearVelocity(vehicle->body->getLinearVelocity() * 2);
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_Z) == KEY_DOWN)
+	{
+		actualFriction += 50;
+		ChangeFriction(actualFriction);
+	}
+	if (App->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN)
+	{
+		actualFriction -= 50;
+		ChangeFriction(actualFriction);
+	}
+	if (App->input->GetKey(SDL_SCANCODE_C) == KEY_DOWN)
+	{
+		actualFriction = 0;
+		ChangeFriction(actualFriction);
+	}
+	if (App->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN)
+	{
+		actualFriction = defaultFriction;
+		ChangeFriction(actualFriction);
+	}
+
+
+	Uint32 currentTime = SDL_GetTicks();
+	Uint32 elapsedTime = currentTime - startTime;
+
+	//Seconds = (elapsedTime / 1000) % 60;
+	//Seconds = elapsedTime / (1000 * 60);
+	Seconds = (elapsedTime / 1000) % 60;
+	//Seconds = elapsedTime % 1000;
+	if (auxSeconds != Seconds) {
+		MaxSeconds -= 1;
+		auxSeconds = Seconds;
+	}
+
+	if (MaxSeconds <= 0) {
+		App->audio->PlayFx(6, 0);
+		App->scene_intro->cp1->GetTransform(&debugCheckpontTransform);
+		vehicle->SetTransform(&debugCheckpontTransform);
+		vehicle->SetPos(chekpoint1.x(), chekpoint1.y(), chekpoint1.z());
+		turn = acceleration = brake = 0.0f;
+		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+		accelerated = false;
+		reduced = false;
+		MaxSeconds = 300;
+	}
 
 	return UPDATE_CONTINUE;
 }
@@ -243,36 +335,96 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
 	if (body2->collType == ENEMY)
 	{
-		//alive = false;
 		brake = BRAKE_POWER;
 		vehicle->SetTransform(&lastCheckpontTransform);
 		RestartPlayer(lastCheckpoint.x, lastCheckpoint.y, lastCheckpoint.z);
 		turn = acceleration = brake = 0.0f;
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
 		if (!fxPlayed) { App->audio->PlayFx(4, 0); fxPlayed = true; }
+		ChangeFriction(defaultFriction);
+		actualFriction = defaultFriction;
 	}
 
 	if (body2->collType == WIN)
 	{
-		//alive = false;
 		App->audio->PlayFx(5, 0);
+		lastCheckpoint = App->scene_intro->cp1->checkpointX;
+		App->scene_intro->cp1->GetTransform(&debugCheckpontTransform);
+		vehicle->SetTransform(&debugCheckpontTransform);
+		vehicle->SetPos(chekpoint1.x(), chekpoint1.y(), chekpoint1.z());
+		turn = acceleration = brake = 0.0f;
+		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+		accelerated = false;
+		reduced = false;
+		ChangeFriction(defaultFriction);
+		actualFriction = defaultFriction;
+		MaxSeconds = 300;
 	}
 
 	if (body2->collType == CHECKPOINT)
 	{
-		LOG("Collision checkpoint");
 		body2->GetTransform(&lastCheckpontTransform);
 		if (lastCheckpoint.x != body2->checkpointX) { App->audio->PlayFx(2, 0);}
 		lastCheckpoint.x = body2->checkpointX;
 		lastCheckpoint.y = body2->checkpointY;
 		lastCheckpoint.z = body2->checkpointZ;
 	}
+
+	if (body2->collType == WALL)
+	{
+		App->audio->PlayFx(3, 0);
+	}
+
+	if (body2->collType == FALL)
+	{
+		App->audio->PlayFx(1, 0);
+		brake = BRAKE_POWER;
+		vehicle->SetTransform(&lastCheckpontTransform);
+		RestartPlayer(lastCheckpoint.x, lastCheckpoint.y, lastCheckpoint.z);
+		turn = acceleration = brake = 0.0f;
+		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+		ChangeFriction(defaultFriction);
+		actualFriction = defaultFriction;
+	}
+
+	if (body2->collType == ACCELERATION)
+	{
+		if (!accelerated) {
+			vehicle->body->setLinearVelocity(vehicle->body->getLinearVelocity() * 2);
+		}
+		accelerated = true;
+	}
+
+	if (body2->collType == REDUCCION)
+	{
+		if (!reduced) {
+			vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
+		}
+		reduced = true;
+	}
+
+	if (body2->collType == FRICTIONREDUC)
+	{
+		if (!Changeedfric) {
+			actualFriction = 1;
+			ChangeFriction(actualFriction);
+		}
+		Changeedfric = true;
+	}
 }
 
 void ModulePlayer::RestartPlayer(int x, int y, int z)
 {
-	//brake = BRAKE_POWER;
 	vehicle->SetPos(x, y, z);
-	//alive = true;
+	accelerated = false;
+	reduced = false;
 	fxPlayed = false;
+}
+
+void ModulePlayer::ChangeFriction(float friction)
+{
+	vehicle->vehicle->m_wheelInfo[0].m_frictionSlip = friction;
+	vehicle->vehicle->m_wheelInfo[1].m_frictionSlip = friction;
+	vehicle->vehicle->m_wheelInfo[2].m_frictionSlip = friction;
+	vehicle->vehicle->m_wheelInfo[3].m_frictionSlip = friction;
 }

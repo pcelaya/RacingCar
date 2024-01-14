@@ -32,25 +32,33 @@ public:
 	PhysBody3D* AddBody(const Cylinder& cylinder, float mass = 1.0f);
 	PhysVehicle3D* AddVehicle(const VehicleInfo& info);
 
-	void AddConstraintP2P(btRigidBody& bodyA, btRigidBody& bodyB, const vec3& anchorA, const vec3& anchorB);
+	btTypedConstraint* AddConstraintP2P(btRigidBody& bodyA, btRigidBody& bodyB, const vec3& anchorA, const vec3& anchorB);
 	void AddConstraintHinge(PhysBody3D& bodyA, PhysBody3D& bodyB, const vec3& anchorA, const vec3& anchorB, const vec3& axisS, const vec3& axisB, bool disable_collision = false);
 
 	void Ground(int length, int width, int x, int y, int z);
-	void RectRoad(int length, int width, int height, vec3 pos, Color c, RoadTypes direction);
+	void RectRoad(int length, int width, int height, vec3 pos, Color c, RoadTypes direction, CollisionObject coll);
 	void AddBall(int radius, vec3 pos, Color c);
 	void AddEnemy(int length, int width, int height, vec3 pos, Color c);
 
+	vec3 ApplyAerodynamics(PhysBody3D* body, float deltaTime);
+
+	vec3 ApplyLift(PhysBody3D* body, float deltaTime);
+
 	float GetGravity() const;
+	btDiscreteDynamicsWorld* world;
+	bool debug;
+	bool doLift = true;
+	bool doDrag = true;
 private:
 
-	bool debug;
+	
 	btVector3 gravity;
 
 	btDefaultCollisionConfiguration*	collision_conf;
 	btCollisionDispatcher*				dispatcher;
 	btBroadphaseInterface*				broad_phase;
 	btSequentialImpulseConstraintSolver* solver;
-	btDiscreteDynamicsWorld*			world;
+	
 	btDefaultVehicleRaycaster*			vehicle_raycaster;
 	DebugDrawer*						debug_draw;
 

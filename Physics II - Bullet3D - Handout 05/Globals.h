@@ -47,7 +47,10 @@ enum CollisionObject
 	CHECKPOINT,
 	WIN,
 	FALL,
-	REDUCCION
+	SUELO,
+	REDUCCION,
+	ACCELERATION,
+	FRICTIONREDUC
 };
 
 enum update_status
@@ -58,7 +61,7 @@ enum update_status
 };
 
 // Configuration -----------
-#define SCREEN_WIDTH 1280
+#define SCREEN_WIDTH 1400
 #define SCREEN_HEIGHT 1024
 #define SCREEN_SIZE 1
 #define WIN_FULLSCREEN false

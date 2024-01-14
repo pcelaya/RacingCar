@@ -17,7 +17,7 @@
 
 ModulePhysics3D::ModulePhysics3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
-	debug = true;
+	debug = false;
 
 	collision_conf = new btDefaultCollisionConfiguration();
 	dispatcher = new btCollisionDispatcher(collision_conf);
@@ -74,6 +74,42 @@ bool ModulePhysics3D::Start()
 // ---------------------------------------------------------
 update_status ModulePhysics3D::PreUpdate(float dt)
 {
+	vec3 dragF = (0, 0, 0);
+	vec3 liftF = (0, 0, 0);
+
+	if (App->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN) {
+		if (doDrag) {
+			doDrag = false;
+		}
+		else {
+			doDrag = true;
+		}
+	}
+	if (App->input->GetKey(SDL_SCANCODE_F4) == KEY_DOWN) {
+		if (doLift) {
+			doLift = false;
+		}
+		else {
+			doLift = true;
+		}
+	}
+
+
+	if (doDrag) {
+		dragF = ApplyAerodynamics(App->player->vehicle, dt);
+	}
+	if (doLift) {
+		liftF = ApplyLift(App->player->vehicle, dt);
+	}
+
+	btVector3 DragVec = btVector3(dragF.x, dragF.y, dragF.z);
+	btVector3 LiftVec = btVector3(liftF.x, liftF.y, liftF.z);
+
+	App->player->Drag = DragVec; App->player->Lift = LiftVec;
+
+	App->player->vehicle->body->applyCentralForce(DragVec);
+	App->player->vehicle->body->applyCentralForce(LiftVec);
+
 	world->stepSimulation(dt, 15);
 
 	int numManifolds = world->getDispatcher()->getNumManifolds();
@@ -120,7 +156,6 @@ update_status ModulePhysics3D::Update(float dt)
 	if(debug == true)
 	{
 		world->debugDrawWorld();
-
 		// Render vehicles
 		p2List_item<PhysVehicle3D*>* item = vehicles.getFirst();
 		while(item)
@@ -141,6 +176,16 @@ update_status ModulePhysics3D::Update(float dt)
 		world->setGravity(gravity);
 	}
 
+	if (App->input->GetKey(SDL_SCANCODE_J) == KEY_DOWN)
+	{
+		world->setGravity(world->getGravity()*0);
+	}
+	else if (App->input->GetKey(SDL_SCANCODE_K) == KEY_DOWN)
+	{
+		gravity = GRAVITY;
+		world->setGravity(gravity);
+	}
+	
 
 	return UPDATE_CONTINUE;
 }
@@ -241,7 +286,7 @@ PhysBody3D* ModulePhysics3D::AddBody(Cube& cube, float mass, CollisionObject col
 	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, colShape, localInertia);
 	btRigidBody* body = new btRigidBody(rbInfo);
 	body->setFlags(btRigidBodyFlags::BT_DISABLE_WORLD_GRAVITY);
-	if (coll == CHECKPOINT || coll == WIN || coll == FALL || coll == REDUCCION)
+	if (coll == CHECKPOINT || coll == WIN || coll == FALL || coll == REDUCCION || coll == ACCELERATION || coll == FRICTIONREDUC)
 		body->setCollisionFlags(body->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
 	PhysBody3D* pbody = new PhysBody3D(body);
 
@@ -346,7 +391,7 @@ PhysVehicle3D* ModulePhysics3D::AddVehicle(const VehicleInfo& info)
 }
 
 // ---------------------------------------------------------
-void ModulePhysics3D::AddConstraintP2P(btRigidBody& bodyA, btRigidBody& bodyB, const vec3& anchorA, const vec3& anchorB)
+btTypedConstraint* ModulePhysics3D::AddConstraintP2P(btRigidBody& bodyA, btRigidBody& bodyB, const vec3& anchorA, const vec3& anchorB)
 {
 	btTypedConstraint* p2p = new btPoint2PointConstraint(
 		bodyA, 
@@ -356,6 +401,7 @@ void ModulePhysics3D::AddConstraintP2P(btRigidBody& bodyA, btRigidBody& bodyB, c
 	world->addConstraint(p2p);
 	constraints.add(p2p);
 	p2p->setDbgDrawSize(2.0f);
+	return p2p;
 }
 
 void ModulePhysics3D::AddConstraintHinge(PhysBody3D& bodyA, PhysBody3D& bodyB, const vec3& anchorA, const vec3& anchorB, const vec3& axisA, const vec3& axisB, bool disable_collision)
@@ -420,7 +466,7 @@ void ModulePhysics3D::Ground(int length, int width, int x, int y, int z)
 	ground->SetPos(x, y, z);
 }
 
-void ModulePhysics3D::RectRoad(int length, int width, int height, vec3 pos, Color c, RoadTypes direction)
+void ModulePhysics3D::RectRoad(int length, int width, int height, vec3 pos, Color c, RoadTypes direction, CollisionObject coll)
 {
 	Cube* wall = new Cube(width, height, length);
 	wall->color = c;
@@ -465,19 +511,25 @@ void ModulePhysics3D::RectRoad(int length, int width, int height, vec3 pos, Colo
 		wall->SetRotation(90, rot);
 		break;
 	case WALL_RAMP:
-		rot = { 0,1,0};
+		rot = { 0,1,0 };
 		wall->SetRotation(90, rot);
 		break;
 	case RIGHT_INVERSE_RAMP:
-		rot = {0, 0, -1};
+		rot = { 0, 0, -1 };
 		wall->SetRotation(25, rot);
 		break;
 	default:
 		break;
 	}
 
-	AddBody(*wall, 1000000.0f, WALL);
+	if (coll == WALL) {
+		AddBody(*wall, 1000000.0f, WALL);
+	}
+	else {
+		AddBody(*wall, 1000000.0f, SUELO);
+	}
 }
+	
 
 void ModulePhysics3D::AddBall(int radius, vec3 pos, Color c)
 {
@@ -495,6 +547,60 @@ void ModulePhysics3D::AddEnemy(int length, int width, int height, vec3 pos, Colo
 	App->scene_intro->PrimitiveObjects.PushBack(s);
 	s->SetPos(pos.x, pos.y, pos.z);
 	AddBody(*s, 1000000.0f, ENEMY);
+}
+
+vec3 ModulePhysics3D::ApplyAerodynamics(PhysBody3D* body, float deltaTime)
+{
+	float DragCoef = 0.47f;
+	float airDensity = 1.225f;
+	float area = App->player->vehicleArea;
+	float Vsquared = pow(body->body->getLinearVelocity().x(), 2) + pow(body->body->getLinearVelocity().y(), 2) + pow(body->body->getLinearVelocity().z(), 2);
+	float dragForce = 0.5f * airDensity * Vsquared * DragCoef * area;
+
+	btVector3 linearVelocity = body->body->getLinearVelocity();
+
+
+	btScalar magnitude = linearVelocity.length();
+
+	vec3 dragForceVec = vec3(0, 0, 0);
+
+
+	if (magnitude > 1e-6)
+	{
+		// Normalize linear velocity 
+		btVector3 normalizedLinearVelocity = linearVelocity / magnitude;
+		btVector3 drag = body->body->getLinearVelocity().normalized();
+		dragForceVec = vec3(drag.x(), drag.y(), drag.z());
+		//body->velocity.Normalize();
+		dragForceVec.x *= -1 * deltaTime;
+		dragForceVec.y *= -1 * deltaTime;
+		dragForceVec.z *= -1 * deltaTime;
+
+
+
+	}
+	return dragForceVec;
+}
+
+vec3 ModulePhysics3D::ApplyLift(PhysBody3D* body, float deltaTime)
+{
+	float liftCoefficient = 0.2f;
+	float airDensity = 1.225f;
+	float airspeed = body->body->getLinearVelocity().length();
+
+	float liftForceMagnitude = 0.5 * airDensity * airspeed * airspeed * App->player->vehicleArea * liftCoefficient;
+
+	btTransform transform;
+	body->body->getMotionState()->getWorldTransform(transform);
+
+	// Extract the up vector from the transformation matrix
+	btVector3 upVector = transform.getBasis().getColumn(1);
+	vec3 upDirection(upVector.getX(), upVector.getY(), upVector.getZ());
+
+	// lift force vector
+	vec3 liftForce = liftForceMagnitude * upDirection * deltaTime;
+
+	return liftForce;
 }
 
 float ModulePhysics3D::GetGravity() const
