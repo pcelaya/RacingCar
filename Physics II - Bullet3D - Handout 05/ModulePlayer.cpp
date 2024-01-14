@@ -39,6 +39,8 @@ bool ModulePlayer::Start()
 	car.cabine_offset.Set(0, 2.1, 0.5);
 	car.antenaSize.Set(0.1, 2, 0.1);
 	car.antenaOffset.Set(0.8, 2.5, -1);
+	car.sphereOffset.Set(0.8, 3.5, -1);
+	car.sphereRadius = 0.2;
 	car.rear_chassis_right_size.Set(0.3, 0.2, 1);
 	car.rear_chassis_right_offset.Set(1.6, 2.4, -2);
 	car.rear_chassis_left_size.Set(0.3, 0.2, 1);

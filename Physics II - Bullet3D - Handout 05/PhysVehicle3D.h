@@ -54,6 +54,9 @@ struct VehicleInfo
 
 	vec3 antenaOffset;
 	vec3 antenaSize;
+
+	vec3 sphereOffset;
+	float sphereRadius;
 };
 
 

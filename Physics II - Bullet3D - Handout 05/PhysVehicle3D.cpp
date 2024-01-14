@@ -85,6 +85,13 @@ void PhysVehicle3D::Render()
 	btVector3 offsetAntena(info.antenaOffset.x, info.antenaOffset.y, info.antenaOffset.z);
 	offsetAntena = offsetAntena.rotate(q.getAxis(), q.getAngle());
 
+	Sphere SphereAntena(info.sphereRadius);
+	SphereAntena.color = Red;
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&SphereAntena.transform);
+	q = vehicle->getChassisWorldTransform().getRotation();
+	btVector3 offsetSphere(info.sphereOffset.x, info.sphereOffset.y, info.sphereOffset.z);
+	offsetSphere = offsetSphere.rotate(q.getAxis(), q.getAngle());
+
 	chassis.transform.M[12] += offset.getX();
 	chassis.transform.M[13] += offset.getY();
 	chassis.transform.M[14] += offset.getZ();
@@ -113,6 +120,9 @@ void PhysVehicle3D::Render()
 	cabine.transform.M[13] += offsetCabine.getY();
 	cabine.transform.M[14] += offsetCabine.getZ();
 
+	SphereAntena.transform.M[12] += offsetSphere.getX();
+	SphereAntena.transform.M[13] += offsetSphere.getY();
+	SphereAntena.transform.M[14] += offsetSphere.getZ();
 
 	chassis.Render();
 	FrontChassis.Render();
@@ -120,6 +130,7 @@ void PhysVehicle3D::Render()
 	RearChassisRight.Render();
 	RearChassisLeft.Render();
 	antena.Render();
+	SphereAntena.Render();
 	cabine.Render();
 }
 

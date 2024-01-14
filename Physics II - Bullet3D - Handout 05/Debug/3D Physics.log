@@ -1,4 +1,5 @@
 ﻿  ModulePhysics3D.cpp
+<<<<<<< Updated upstream
 C:\Users\Salva\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(414,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Salva\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(414,26): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
 C:\Users\Salva\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(420,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
@@ -92,3 +93,18 @@ C:\Users\Salva\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\Mod
 C:\Users\Salva\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(187,29): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
   Generando código...
   3D Physics.vcxproj -> C:\Users\Salva\Documents\GitHub\RacingCar\Physics II - Bullet3D - Handout 05\Debug\3D Physics - class5.exe
+=======
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(414,41): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(414,26): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(420,23): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(420,20): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(420,17): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(425,39): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(425,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(425,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(484,25): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(493,36): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(493,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePhysics3D.cpp(493,21): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  3D Physics.vcxproj -> C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\Debug\3D Physics - class5.exe
+>>>>>>> Stashed changes
