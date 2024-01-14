@@ -494,7 +494,7 @@ void ModulePhysics3D::AddEnemy(int length, int width, int height, vec3 pos, Colo
 	s->color = c;
 	App->scene_intro->PrimitiveObjects.PushBack(s);
 	s->SetPos(pos.x, pos.y, pos.z);
-	AddBody(*s);
+	AddBody(*s, 1000000.0f, ENEMY);
 }
 
 float ModulePhysics3D::GetGravity() const

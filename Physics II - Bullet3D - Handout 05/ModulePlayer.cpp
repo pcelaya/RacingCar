@@ -32,18 +32,17 @@ bool ModulePlayer::Start()
 	car.maxSuspensionForce = 6000.0f;
 
 	car.front_chassis_size.Set(3, 0.5, 1);
-	car.front_chassis_offset.Set(0, 0.5, 2);
+	car.front_chassis_offset.Set(0, 1, 2);
 	car.rear_chassis_size.Set(3.5, 0.3, 1);
-	car.rear_chassis_offset.Set(0,1.7, -2);
+	car.rear_chassis_offset.Set(0,2.2, -2);
 	car.cabine_radius = 1.0f;
-	car.cabine_offset.Set(0, 1.3, 0.5);
-	car.antenaHeight = 2.0f;
-	car.antenaReadius = 0.05f;
+	car.cabine_offset.Set(0, 2.1, 0.5);
+	car.antenaSize.Set(0.1, 2, 0.1);
 	car.antenaOffset.Set(0.8, 2.5, -1);
 	car.rear_chassis_right_size.Set(0.3, 0.2, 1);
-	car.rear_chassis_right_offset.Set(1.6, 1.9, -2);
+	car.rear_chassis_right_offset.Set(1.6, 2.4, -2);
 	car.rear_chassis_left_size.Set(0.3, 0.2, 1);
-	car.rear_chassis_left_offset.Set(-1.6, 1.9, -2);
+	car.rear_chassis_left_offset.Set(-1.6, 2.4, -2);
 
 	// Wheel properties ---------------------------------------
 	float connection_height = 1.2f;
@@ -123,7 +122,7 @@ bool ModulePlayer::Start()
 	chekpoint2 = { -200, 20.2, 435 };
 	chekpoint3 = { -530, 0.2, 435 };
 
-	App->physics->AddConstraintP2P(*decorBody->body, *vehicle->body, car.rear_chassis_offset, car.rear_chassis_offset);
+	//App->physics->AddConstraintP2P(*decorBody->body, *vehicle->body, car.rear_chassis_offset, car.rear_chassis_offset);
 	return true;
 }
 
@@ -196,6 +195,8 @@ update_status ModulePlayer::Update(float dt)
 	{
 		vehicle->SetTransform(&lastCheckpontTransform);
 		RestartPlayer(lastCheckpoint.x + 3, lastCheckpoint.y + 1, lastCheckpoint.z + 3);
+		turn = acceleration = brake = 0.0f;
+		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
 		// code to jump or to get up if car is upside down
 	}
 
@@ -236,6 +237,10 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 	{
 		//alive = false;
 		brake = BRAKE_POWER;
+		vehicle->SetTransform(&lastCheckpontTransform);
+		RestartPlayer(lastCheckpoint.x, lastCheckpoint.y, lastCheckpoint.z);
+		turn = acceleration = brake = 0.0f;
+		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
 		//if (!fxPlayed) { App->audio->PlayFx(2, 0); fxPlayed = true; }
 	}
 

@@ -78,16 +78,12 @@ void PhysVehicle3D::Render()
 	btVector3 offsetRearLeft(info.rear_chassis_left_offset.x, info.rear_chassis_left_offset.y, info.rear_chassis_left_offset.z);
 	offsetRearLeft = offsetRearLeft.rotate(q.getAxis(), q.getAngle());
 
-	Cylinder antena;
+	Cube antena(info.antenaSize.x, info.antenaSize.y, info.antenaSize.z);
 	antena.color = Red;
-	antena.radius = info.antenaReadius;
-	antena.height = info.antenaHeight;
 	vehicle->getChassisWorldTransform().getOpenGLMatrix(&antena.transform);
 	q = vehicle->getChassisWorldTransform().getRotation();
 	btVector3 offsetAntena(info.antenaOffset.x, info.antenaOffset.y, info.antenaOffset.z);
 	offsetAntena = offsetAntena.rotate(q.getAxis(), q.getAngle());
-	vec3 rot = { 0,0,1 };
-	antena.SetRotation(90, rot);
 
 	chassis.transform.M[12] += offset.getX();
 	chassis.transform.M[13] += offset.getY();

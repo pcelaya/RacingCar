@@ -137,10 +137,7 @@ bool ModuleSceneIntro::Start()
 	s.SetPos(-652.5, 1, 425);
 	App->physics->AddBody(s);
 
-	App->physics->AddEnemy(10, 10, 10, { -652.5, 0, 287.5 }, LightOrange);
-
-	Cube enemy1(10, 10, 10);
-	enemy1.SetPos(-652.5, 0, 287.5);
+	App->physics->AddEnemy(10, 10, 10, { -652.5, 5, 287.5 }, LightOrange);
 
 	App->physics->RectRoad(10, 0.1, 10, { -657.5, 5, 377.5 }, LightYellow, RIGHT_WALL);
 	App->physics->RectRoad(10, 0.1, 10, { -647.5, 5, 355 }, LightBlue, RIGHT_WALL);

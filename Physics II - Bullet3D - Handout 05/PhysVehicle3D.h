@@ -53,8 +53,7 @@ struct VehicleInfo
 	int num_wheels;
 
 	vec3 antenaOffset;
-	float antenaHeight;
-	float antenaReadius;
+	vec3 antenaSize;
 };
 
 
