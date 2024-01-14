@@ -128,8 +128,8 @@ bool ModuleSceneIntro::Start()
 
 	// Obstaculos Fnal
 	App->physics->RectRoad(10, 0.1, 10, { -647.5, 5, 400 }, LightRed, RIGHT_WALL);
-	App->physics->AddBall(3, (-652.5, 1, 430), LightOrange);
-	App->physics->AddBall(3, (-652.5, 1, 425), LightOrange);
+	App->physics->AddBall(3, (652.5, 1, 430), LightOrange);
+	App->physics->AddBall(3, (652.5, 1, 425), LightOrange);
 	
 	Sphere s(3);
 	s.SetPos(-652.5, 1, 430);
@@ -137,7 +137,32 @@ bool ModuleSceneIntro::Start()
 	s.SetPos(-652.5, 1, 425);
 	App->physics->AddBody(s);
 
-	App->physics->AddEnemy(10, 10, 10, { -652.5, 5, 287.5 }, LightOrange);
+	//--------------------Enemigos----------------------------------
+
+	App->physics->AddEnemy(2, 10, 2, { -647.5, 5, 297.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -653.5, 5, 290.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -657.5, 5, 286.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -660.5, 5, 286.5 }, LightOrange);
+
+	App->physics->AddEnemy(2, 10, 2, { -660.5, 5, 280.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -657.5, 5, 276.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -654.5, 5, 270.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -649.5, 5, 271.5 }, LightOrange);
+
+	App->physics->AddEnemy(2, 10, 2, { -660.5, 5, 250.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -654.5, 5, 260.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -650.5, 5, 247.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -645.5, 5, 259.5 }, LightOrange);
+
+	App->physics->AddEnemy(2, 10, 2, { -660.5, 5, 232.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -657.5, 5, 230.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -654.5, 5, 225.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -649.5, 5, 241.5 }, LightOrange);
+
+	App->physics->AddEnemy(2, 10, 2, { -660.5, 5, 222.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -657.5, 5, 215.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -654.5, 5, 213.5 }, LightOrange);
+	App->physics->AddEnemy(2, 10, 2, { -649.5, 5, 210.5 }, LightOrange);
 
 	App->physics->RectRoad(10, 0.1, 10, { -657.5, 5, 377.5 }, LightYellow, RIGHT_WALL);
 	App->physics->RectRoad(10, 0.1, 10, { -647.5, 5, 355 }, LightBlue, RIGHT_WALL);
