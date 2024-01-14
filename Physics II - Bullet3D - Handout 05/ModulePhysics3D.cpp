@@ -241,7 +241,7 @@ PhysBody3D* ModulePhysics3D::AddBody(Cube& cube, float mass, CollisionObject col
 	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, colShape, localInertia);
 	btRigidBody* body = new btRigidBody(rbInfo);
 	body->setFlags(btRigidBodyFlags::BT_DISABLE_WORLD_GRAVITY);
-	if (coll == CHECKPOINT)
+	if (coll == CHECKPOINT || coll == WIN || coll == FALL || coll == REDUCCION)
 		body->setCollisionFlags(body->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
 	PhysBody3D* pbody = new PhysBody3D(body);
 

@@ -29,6 +29,8 @@ public:
 	float turn;
 	float acceleration;
 	float brake;
+	bool alive;
+	bool fxPlayed;
 
 	btVector3 chekpoint1;
 	btVector3 chekpoint2;

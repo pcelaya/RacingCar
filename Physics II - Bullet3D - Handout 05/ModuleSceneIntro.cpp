@@ -22,6 +22,8 @@ bool ModuleSceneIntro::Start()
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
 
+	App->audio->PlayMusic("SonidoRacing Car/FONDO.wav", -1.0f);
+
 	Color LightRed = { 0.976f, 0.152f, 0.152f, 0.8f };
 	Color LightYellow = { 0.976f, 0.898f, 0.152f, 0.8f };
 	Color LightBlue = { 0.152f, 0.819f, 0.976f, 0.8f };
@@ -46,6 +48,11 @@ bool ModuleSceneIntro::Start()
 	rot = { 0,-1,0 };
 	checkpoint_3.SetRotation(90, rot);
 	App->physics->AddBody(checkpoint_3, 1, CHECKPOINT, -530, 0.5, 432.7);
+
+	Cube winpoint(20, 2, 5);
+	winpoint.color = LightYellow;
+	winpoint.SetPos(-652.5,2, 176);
+	App->physics->AddBody(winpoint, 1, WIN, -652.5,2, 176);
 
 	//-----------------Reduccion-----------------------
 

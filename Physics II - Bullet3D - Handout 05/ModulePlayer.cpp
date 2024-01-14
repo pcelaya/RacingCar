@@ -17,7 +17,13 @@ ModulePlayer::~ModulePlayer()
 bool ModulePlayer::Start()
 {
 	LOG("Loading player");
-
+	alive = true;
+	fxPlayed = false;
+	App->audio->LoadFx("SonidoRacing Car/CAIDA.wav");
+	App->audio->LoadFx("SonidoRacing Car/CHECKPOINT.wav");
+	App->audio->LoadFx("SonidoRacing Car/CHOQUE_PARED.wav");
+	App->audio->LoadFx("SonidoRacing Car/MUERTE_POR_ENEMIGO.wav");
+	App->audio->LoadFx("SonidoRacing Car/WIN.wav");
 	VehicleInfo car;
 
 	// Car properties ----------------------------------------
@@ -243,23 +249,23 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 		RestartPlayer(lastCheckpoint.x, lastCheckpoint.y, lastCheckpoint.z);
 		turn = acceleration = brake = 0.0f;
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
-		//if (!fxPlayed) { App->audio->PlayFx(2, 0); fxPlayed = true; }
+		if (!fxPlayed) { App->audio->PlayFx(4, 0); fxPlayed = true; }
 	}
 
 	if (body2->collType == WIN)
 	{
 		//alive = false;
-		//if (!fxPlayed) { App->audio->PlayFx(1, 0); fxPlayed = true; }
+		App->audio->PlayFx(5, 0);
 	}
 
 	if (body2->collType == CHECKPOINT)
 	{
 		LOG("Collision checkpoint");
 		body2->GetTransform(&lastCheckpontTransform);
+		if (lastCheckpoint.x != body2->checkpointX) { App->audio->PlayFx(2, 0);}
 		lastCheckpoint.x = body2->checkpointX;
 		lastCheckpoint.y = body2->checkpointY;
 		lastCheckpoint.z = body2->checkpointZ;
-		//if (!fxPlayed) { App->audio->PlayFx(3, 0); fxPlayed = true; }
 	}
 }
 
@@ -268,5 +274,5 @@ void ModulePlayer::RestartPlayer(int x, int y, int z)
 	//brake = BRAKE_POWER;
 	vehicle->SetPos(x, y, z);
 	//alive = true;
-	//fxPlayed = false;
+	fxPlayed = false;
 }

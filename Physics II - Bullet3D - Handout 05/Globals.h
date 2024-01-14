@@ -46,6 +46,7 @@ enum CollisionObject
 	ENEMY,
 	CHECKPOINT,
 	WIN,
+	FALL,
 	REDUCCION
 };
 
