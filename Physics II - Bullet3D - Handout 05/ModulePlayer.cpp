@@ -191,6 +191,7 @@ update_status ModulePlayer::Update(float dt)
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
 		accelerated = false;
 		reduced = false;
+		Changeedfric = false;
 		ChangeFriction(defaultFriction);
 		actualFriction = defaultFriction;
 	}
@@ -204,6 +205,7 @@ update_status ModulePlayer::Update(float dt)
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
 		accelerated = false;
 		reduced = false;
+		Changeedfric = false;
 		ChangeFriction(defaultFriction);
 		actualFriction = defaultFriction;
 	}
@@ -217,6 +219,7 @@ update_status ModulePlayer::Update(float dt)
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
 		accelerated = false;
 		reduced = false;
+		Changeedfric = false;
 		ChangeFriction(defaultFriction);
 		actualFriction = defaultFriction;
 	}
@@ -325,6 +328,7 @@ update_status ModulePlayer::Update(float dt)
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
 		accelerated = false;
 		reduced = false;
+		Changeedfric = false;
 		MaxSeconds = 300;
 	}
 
@@ -356,6 +360,7 @@ void ModulePlayer::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 		vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
 		accelerated = false;
 		reduced = false;
+		Changeedfric = false;
 		ChangeFriction(defaultFriction);
 		actualFriction = defaultFriction;
 		MaxSeconds = 300;
@@ -419,6 +424,7 @@ void ModulePlayer::RestartPlayer(int x, int y, int z)
 	accelerated = false;
 	reduced = false;
 	fxPlayed = false;
+	Changeedfric = false;
 }
 
 void ModulePlayer::ChangeFriction(float friction)

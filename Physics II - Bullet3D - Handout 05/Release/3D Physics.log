@@ -56,18 +56,18 @@ C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModuleP
 C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(132,28): warning C4305: 'argumento': truncamiento de 'double' a 'const btScalar'
 C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(133,33): warning C4305: 'argumento': truncamiento de 'double' a 'const btScalar'
 C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(134,32): warning C4305: 'argumento': truncamiento de 'double' a 'const btScalar'
-C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(227,78): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(227,56): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(227,34): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(340,67): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(340,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(340,31): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(383,67): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(383,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(383,31): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(418,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(418,21): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(418,18): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(230,78): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(230,56): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(230,34): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(344,67): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(344,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(344,31): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(388,67): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(388,49): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(388,31): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(423,24): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(423,21): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(423,18): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   ModuleRenderer3D.cpp
   ModuleSceneIntro.cpp
 C:\Users\CLEVO\Desktop\joan\RacingCar\Physics II - Bullet3D - Handout 05\ModuleSceneIntro.cpp(36,72): warning C4305: 'argumento': truncamiento de 'double' a 'float'
