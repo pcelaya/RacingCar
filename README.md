@@ -72,7 +72,7 @@ Map:
   Big ramp with a boost in the middle to help you reach the top, and in the peack a force that slows the car to make the more easy to do the edge.
 
 **3. Third Checkpoint** (after the edge)
-![Captura de pantalla 2024-01-14 212853](https://github.com/pcelaya/RacingCar/assets/125651873/23f50b50-f4d7-4e97-8ead-81b48fe44bc1)
+![Captura de pantalla 2024-01-14 212853](https://github.com/pcelaya/RacingCar/assets/125651873/cdd26938-a687-4efc-b392-3be5e230cfdc)
  Another hard corner to turn, next some walls to make a zig-zag and in the end some enemies that you have to avoid because it kills you.
 
 
