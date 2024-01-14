@@ -34,7 +34,7 @@ Controls:
 
    F1: show/hide colliders
 
-   F2: activate/desactivate constraint
+   F2: activate/desactivate constraint (you appear with it and it's difficult to play with it, is a hard mode)
 
    F3: activate/desactivate drag
 
