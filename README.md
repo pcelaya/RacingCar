@@ -5,7 +5,7 @@ Collaborators:
 - Salvador Bernades Iglesias - https://github.com/SalvaBernades
 
 Github Link:
-- (https://github.com/pcelaya/RacingCar)
+- https://github.com/pcelaya/RacingCar
 
 Gameplay:
 
