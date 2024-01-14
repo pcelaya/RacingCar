@@ -32,6 +32,8 @@ Controls:
 
    3: spawn in the third checkpoint
 
+   5: doubles your actual speed (for trials of velocity)
+
    F1: show/hide colliders
 
    F2: activate/desactivate constraint (you appear with it and it's difficult to play with it, is a hard mode)
