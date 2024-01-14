@@ -9,7 +9,7 @@ Github Link:
 
 Gameplay:
 
-- The main point is to arrive to the end. You have 3 lives, you can lose live falling of the limits and get damaged by the enemies.
+- The main point is to arrive to the end. You have 5 minutes to finish the level, you respawn in a checkpoint if you fall off the limits or get damaged by a enemy.
 
 Controls:
  
@@ -75,6 +75,6 @@ Map:
 
 **3. Third Checkpoint** (after the edge)
 ![Captura de pantalla 2024-01-14 212853](https://github.com/pcelaya/RacingCar/assets/125651873/cdd26938-a687-4efc-b392-3be5e230cfdc)
- Another hard corner to turn, next some walls to make a zig-zag and in the end some enemies that you have to avoid because it kills you.
+ Another hard corner to turn, next some walls to make a zig-zag and in the end some enemies (the orange sticks) that you have to avoid because it kills you.
 
 
