@@ -75,7 +75,7 @@ Map:
 
 **3. Third Checkpoint** (after the edge)
 ![Captura de pantalla 2024-01-14 212853](https://github.com/pcelaya/RacingCar/assets/125651873/cdd26938-a687-4efc-b392-3be5e230cfdc)
- Another hard corner to turn, next some walls to make a zig-zag and in the end some enemies (the orange sticks) that you have to avoid because it kills you.
+ Another hard corner to turn with a hard decrease of the friction, next some walls to make a zig-zag and in the end some enemies (the orange sticks) that you have to avoid because it kills you.
 
 
 ***If you want to see the collisions you have to download the project and compile in debug mode*** 
