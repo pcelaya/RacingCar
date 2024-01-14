@@ -40,6 +40,27 @@ Controls:
 
    F4: activate/desactivate lift
 
-   M:
+   M: add mass
 
-   N:
+   N: decrease the mass
+
+   G: add gravity
+
+   H: decrease the gravity
+
+   J: no gravity (0 m/s^2)
+
+   K: set deafult gravity (-10 m/s^2)
+
+   Z: add friction
+
+   X: decrease the friction
+
+   C: no friction (0 N)
+
+   V: deafult friction (50.50 N)
+
+
+Map:
+
+
