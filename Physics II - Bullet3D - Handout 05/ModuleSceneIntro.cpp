@@ -47,6 +47,15 @@ bool ModuleSceneIntro::Start()
 	checkpoint_3.SetRotation(90, rot);
 	App->physics->AddBody(checkpoint_3, 1, CHECKPOINT, -530, 0.5, 432.7);
 
+	//-----------------Reduccion-----------------------
+
+	Cube reduccion_1(20, 2, 5);
+	reduccion_1.SetPos(-300, 51, 435);
+	rot = { 0,-1,0 };
+	checkpoint_3.SetRotation(90, rot);
+	
+
+
 	//------------------suelo------------------
 	//principio
 	App->physics->RectRoad(80, 20, 0.1, { 0, 6, 0 }, LightRed, FORWARD_RECT);
@@ -105,7 +114,17 @@ bool ModuleSceneIntro::Start()
 	App->physics->RectRoad(45, 20, 0.1, { -652.5, 0, 332.5 }, LightRed, FORWARD_RECT);
 	App->physics->RectRoad(45, 0.1, 10, { -662.5, 5, 332.5 }, White, FORWARD_WALL);
 	App->physics->RectRoad(45, 0.1, 10, { -642.5, 5, 332.5 }, White, FORWARD_WALL);
-	App->physics->RectRoad(20, 0.1, 10, { -652.5, 5, 310 }, White, RIGHT_WALL);
+	App->physics->RectRoad(45, 20, 0.1, { -652.5, 0, 287.5 }, LightRed, FORWARD_RECT);
+	App->physics->RectRoad(45, 0.1, 10, { -662.5, 5, 287.5 }, White, FORWARD_WALL);
+	App->physics->RectRoad(45, 0.1, 10, { -642.5, 5, 287.5 }, White, FORWARD_WALL);
+	App->physics->RectRoad(45, 20, 0.1, { -652.5, 0, 242.5 }, LightRed, FORWARD_RECT);
+	App->physics->RectRoad(45, 0.1, 10, { -662.5, 5, 242.5 }, White, FORWARD_WALL);
+	App->physics->RectRoad(45, 0.1, 10, { -642.5, 5, 242.5 }, White, FORWARD_WALL);
+	App->physics->RectRoad(45, 20, 0.1, { -652.5, 0, 197.5 }, LightRed, FORWARD_RECT);
+	App->physics->RectRoad(45, 0.1, 10, { -662.5, 5, 197.5 }, White, FORWARD_WALL);
+	App->physics->RectRoad(45, 0.1, 10, { -642.5, 5, 197.5 }, White, FORWARD_WALL);
+	App->physics->RectRoad(20, 0.1, 10, { -652.5, 5, 175 }, White, RIGHT_WALL);
+
 
 	// Obstaculos Fnal
 	App->physics->RectRoad(10, 0.1, 10, { -647.5, 5, 400 }, LightRed, RIGHT_WALL);
@@ -117,6 +136,11 @@ bool ModuleSceneIntro::Start()
 	App->physics->AddBody(s);
 	s.SetPos(-652.5, 1, 425);
 	App->physics->AddBody(s);
+
+	App->physics->AddEnemy(10, 10, 10, { -652.5, 0, 287.5 }, LightOrange);
+
+	Cube enemy1(10, 10, 10);
+	enemy1.SetPos(-652.5, 0, 287.5);
 
 	App->physics->RectRoad(10, 0.1, 10, { -657.5, 5, 377.5 }, LightYellow, RIGHT_WALL);
 	App->physics->RectRoad(10, 0.1, 10, { -647.5, 5, 355 }, LightBlue, RIGHT_WALL);

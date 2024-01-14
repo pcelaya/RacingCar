@@ -488,7 +488,18 @@ void ModulePhysics3D::AddBall(int radius, vec3 pos, Color c)
 	AddBody(*s);
 }
 
+void ModulePhysics3D::AddEnemy(int length, int width, int height, vec3 pos, Color c)
+{
+	Cube* s = new Cube(length, width, height);
+	s->color = c;
+	App->scene_intro->PrimitiveObjects.PushBack(s);
+	s->SetPos(pos.x, pos.y, pos.z);
+	AddBody(*s);
+}
+
 float ModulePhysics3D::GetGravity() const
 {
 	return world->getGravity().y();
 }
+
+

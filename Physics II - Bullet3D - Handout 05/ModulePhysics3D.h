@@ -38,6 +38,7 @@ public:
 	void Ground(int length, int width, int x, int y, int z);
 	void RectRoad(int length, int width, int height, vec3 pos, Color c, RoadTypes direction);
 	void AddBall(int radius, vec3 pos, Color c);
+	void AddEnemy(int length, int width, int height, vec3 pos, Color c);
 
 	float GetGravity() const;
 private:

@@ -45,7 +45,8 @@ enum CollisionObject
 	WALL,
 	ENEMY,
 	CHECKPOINT,
-	WIN
+	WIN,
+	REDUCCION
 };
 
 enum update_status
