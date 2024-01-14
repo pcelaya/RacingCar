@@ -63,4 +63,16 @@ Controls:
 
 Map:
 
+**1. First Checkpoint** (at the beginning)
+![Captura de pantalla 2024-01-14 212745](https://github.com/pcelaya/RacingCar/assets/125651873/2483a5b8-f30d-4e7a-b9c9-9769966185fa)
+  Large Jump, hard corner to turn and some stairs to climb.
+
+**2. Second Checkpoint** (after the stairs)
+![Captura de pantalla 2024-01-14 212824](https://github.com/pcelaya/RacingCar/assets/125651873/19cb205d-73f3-430c-a433-3b82ffbfc6ee)
+  Big ramp with a boost in the middle to help you reach the top, and in the peack a force that slows the car to make the more easy to do the edge.
+
+**3. Third Checkpoint** (after the edge)
+![Captura de pantalla 2024-01-14 212853](https://github.com/pcelaya/RacingCar/assets/125651873/23f50b50-f4d7-4e97-8ead-81b48fe44bc1)
+ Another hard corner to turn, next some walls to make a zig-zag and in the end some enemies that you have to avoid because it kills you.
+
 
